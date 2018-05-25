@@ -389,10 +389,14 @@ VRDisplay.prototype.requestPresent = function (layers) {
       self.addFullscreenListeners_(fullscreenElement,
         onFullscreenChange, onFullscreenError);
 
-      if (Util.requestFullscreen(fullscreenElement)) {
-        self.enableWakeLock();
-        self.waitingForPresent_ = true;
-      } else if (Util.isIOS() || Util.isWebViewAndroid()) {
+      // if (Util.requestFullscreen(fullscreenElement))
+      // {
+      //   self.enableWakeLock();
+      //   self.waitingForPresent_ = true;
+      // }
+      // else
+      // if (Util.isIOS() || Util.isWebViewAndroid())
+      {
         // *sigh* Just fake it.
         self.enableWakeLock();
         self.isPresenting = true;
