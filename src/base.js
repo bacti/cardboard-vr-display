@@ -399,8 +399,8 @@ VRDisplay.prototype.requestPresent = function (layers) {
       {
         // *sigh* Just fake it.
         self.enableWakeLock();
-        self.isPresenting = true;
-        self.beginPresent_();
+        // self.isPresenting = true;
+        // self.beginPresent_();
         self.fireVRDisplayPresentChange_();
         resolve();
       }
