@@ -399,8 +399,8 @@ VRDisplay.prototype.requestPresent = function (layers) {
       {
         // *sigh* Just fake it.
         self.enableWakeLock();
-        // self.isPresenting = true;
-        // self.beginPresent_();
+        self.isPresenting = true;
+        self.beginPresent_();
         self.fireVRDisplayPresentChange_();
         resolve();
       }
@@ -412,6 +412,17 @@ VRDisplay.prototype.requestPresent = function (layers) {
     }
   });
 };
+
+VRDisplay.prototype.despatchPresent = function()
+{
+  var self = this
+  return new Promise(function(resolve, reject)
+  {
+    self.enableWakeLock()
+    self.fireVRDisplayPresentChange_()
+    resolve()
+  })
+}
 
 VRDisplay.prototype.exitPresent = function () {
   var wasPresenting = this.isPresenting;
